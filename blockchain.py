@@ -1,11 +1,4 @@
-class Block:
-    """
-    Block 101: unit of storage.
-    Store transactions in a blockchain that supports a cryptocurrency.
-    """
-    def __init__(self, data):
-        self.data = data
-
+from block import Block
 
 class Blockchain:
     """
@@ -18,8 +11,16 @@ class Blockchain:
     def add_block(self, data):
         self.chain.append(Block(data))
 
-blockchain = Blockchain()
-blockchain.add_block('one')
-blockchain.add_block('two')
+    def __repr__(self):
+        return f'Blockchain: {self.chain}'
 
-print(blockchain)
+def main():
+    blockchain = Blockchain()
+    blockchain.add_block('one')
+    blockchain.add_block('two')
+
+    print(blockchain)
+    print(f'blockchain.py__name__: {__name__}')
+
+if __name__ == '__main__':
+    main()
